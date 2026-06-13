@@ -1,0 +1,52 @@
+/* =========================================================================
+   ФАЙЛ 3: МОДАЛЬНЫЕ ОКНА, ДИАЛОГИ И ПРОСМОТР КАРТИНОК (modals.css)
+   ========================================================================= */
+
+/* Оверлей полноэкранного просмотра картинок */
+.fullscreen-img-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+
+.fullscreen-img-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  animation: zoomAnimation 0.25s ease-out;
+}
+
+@keyframes zoomAnimation {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Стилизация диалогов AlertifyJS */
+.ajs-dialog {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+/* Прячем стандартный футер модалки Alertify, так как кнопки у нас кастомные */
+.ajs-footer {
+  display: none !important;
+}
+
+/* Обеспечиваем ввод текста и кликабельность полей в формах */
+.custom-modal-form input, 
+.custom-modal-form textarea {
+  color: #000 !important;
+  background-color: #fff !important;
+  pointer-events: auto !important;
+}
